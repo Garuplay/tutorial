@@ -1,0 +1,97 @@
+	<!DOCTYPE html>
+<html>
+<head>
+	<title>Tutorial de html css</title>
+	<link rel="stylesheet" type="text/css" href="css/estilo1.css">
+</head>
+<body>
+	<header ><img src="imagenes/encabezado.png" width="100%"></header>
+		<nav>
+			<ul>
+				<li><a href="incio.html"> Inicio </a></li>
+				<li><a href="imagenes.html"> Imagenes </a></li>
+				<li><a href="listas.html"> Listas y enlaces </a></li>
+				<li><a href="formularios.html"> Formularios </a></li>
+				<li><a href="columnas.html"> columnas de texto </a></li>
+				<li><a href="Video.html"> Video </a></li>
+				<li><a href="audio.html"> Audio </a></li>
+				<li><a href="transparencias.html"> Transparencias y degradados </a></li>
+				<li><a href="animaciones.html"> Animaciones </a></li>
+				<li><a href="graficos.html"> Graficos vectoriales </a></li>
+				<li><a href="canvas.html"> canvas </a></li>
+				<li><a href="adaptacion.html"> Adaptacion a moviles </a></li>
+				<li><a href="contenido.html"> contenido editable </a></li>
+				<li><a href="storage.html"> Storage </a></li>
+
+			</ul>
+		</nav>
+		<h2>Diferentes estándares de vídeo</h2>
+		<div> Aunque el código HTML5 para la inserción de vídeo directamente en HTML5 es muy sencillo, todavía tiene un único inconveniente. No todos los navegadores aceptan todos los formatos de vídeo existentes. De hecho de los 3 estándares existentes, el único navegador que los acepta a todos es Chrome.
+<br>
+Así que, si queremos que el vídeo se pueda visualizar en todos los navegadores tendremos que añadir el mismo vídeo en distintos formatos.
+<br>
+Actualmente existen 3 estándares de vídeo que utilizan códecs diferentes y que vienen impulsados por grandes empresas.
+<br>
+<ol>
+	<li>El formato MP4 (ficheros con extensión .mp4 o .mov) que bajo licencia utiliza el códec H264 (el mismo que utiliza Flash). Es impulsado por Apple y Microsoft.</li>
+	<li>El formato OGG (ficheros con extensión .ogv) que utiliza el códec On2VP8 es gratuito.
+Impulsado por Mozilla, Opera y Firefox.</li>
+	<li>El formato WebM (ficheros con extensión .webm) también es gratuito e impulsado por los mismos que apoyan el formato OGG (Mozilla, Opera y Firefox).</li>
+</ol>
+<h2>&lt;video></h2>
+		<div> 
+			El código HTML estándar para visualizar un único formato de vídeo sería:
+			<br>
+			&lt;video>
+			<br>
+   &lt;source src="video.ogv" type="video/ogg"/>
+   <br>
+&lt;/video>
+<br>
+En el tag &lt;video> es posible incorporar un gran número de atributos que nos ayudan a poder controlar mejor el video, como son:
+<ul>
+	<li>width: Indica la anchura del vídeo, expresada en píxeles (px) o en porcentaje (%)</li>
+	<li>height: Indica la altura del vídeo, expresada en píxeles (px) o en porcentaje (%)</li>
+	<li>controls: Establece si tendrá la barra de navegación (play, stop, volumen...) o no</li>
+	<li>autoplay: Indica si el vídeo se inicia detenido o ya aparece por defecto reproduciéndose</li>
+	<li>loop: Establece si al acabar el vídeo, éste debe volver a empezar o no</li>
+	<li>muted: Indica si el audio se reproduce o se reproduce sin audio</li>
+	<li>preload: Indica si el vídeo se empieza a cargar cuando el navegador carga la página html</li>
+	<li>poster: Da la posibilidad de establecer una imagen (jpg, gif o png) como fotograma inicial del video</li>
+
+</ul>
+<pre>
+El código HTML completo quedaría así:
+&lt;video width="800" height="600" controls autoplay loop poster="fotograma.png">
+   &lt;source src="video.ogv" type="video/ogg"/>
+   &lt;source src="video.mp4" type="video/mp4"/>
+   &lt;source src="video.webm" type="video/webm"/>
+   &lt;p>Tu navegador no soporta HTML5&lt;/p>
+   &lt;/video>
+</pre>
+		</div>
+		<h2>Ejemplo práctico</h2>
+		<div> Si además queremos asegurarnos de que el vídeo también se podrá visualizar en navegadores antiguos tendremos que añadir la posibilidad de visualizar el vídeo en el formato de Flash (.flv), que es soportado por todos los navegadores, quedando el código de la siguiente manera:
+			<br>
+			<pre>
+   &lt;video width="800" height="600" controls autoplay loop poster="fotograma.png"&gt;
+   &lt;source src="video.ogv" type="video/ogg"/&gt;
+   &lt;source src="video.mp4" type="video/mp4"/&gt;
+   &lt;source src="video.webm" type="video/webm"/&gt;
+   &gt;Tu navegador no soporta HTML5&lt;/p&gt;
+   &lt;/video&gt;
+</pre>
+<h2>Añadir un vídeo de Youtube</h2>
+		<div> <pre>Para añadir un vídeo de Youtube lo único que tenemos que hacer es:
+Ir a la web de www.youtube.com y acceder al vídeo que quieras añadir a tu web.
+Hacer clic con el botón derecho del ratón sobre el vídeo
+Seleccionar la opción "Copiar código de inserción".
+Ya dentro del editor de HTML, crear un DIV y pegar dentro el contenido que se ha copiado en el punto anterior, que será algo parecido al siguiente código:
+&lt;iframe width="640" height="360" src="http://www.youtube.com/embed/
+_93kDSPlKIM?feature=player_detailpage" frameborder="0" allowfullscreen>&lt;/iframe>
+</pre>
+<iframe width="640" height="360" src="http://www.youtube.com/embed/
+_93kDSPlKIM?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
+
+</body>
+</html>

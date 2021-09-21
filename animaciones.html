@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tutorial de html css</title>
+	<link rel="stylesheet" type="text/css" href="css/estilo1.css">
+</head>
+<body>
+	<header ><img src="imagenes/encabezado.png" width="100%"></header>
+		<nav>
+			<ul>
+				<li><a href="incio.html"> Inicio </a></li>
+				<li><a href="imagenes.html"> Imagenes </a></li>
+				<li><a href="listas.html"> Listas y enlaces </a></li>
+				<li><a href="formularios.html"> Formularios </a></li>
+				<li><a href="columnas.html"> columnas de texto </a></li>
+				<li><a href="Video.html"> Video </a></li>
+				<li><a href="audio.html"> Audio </a></li>
+				<li><a href="transparencias.html"> Transparencias y degradados </a></li>
+				<li><a href="animaciones.html"> Animaciones </a></li>
+				<li><a href="graficos.html"> Graficos vectoriales </a></li>
+				<li><a href="canvas.html"> canvas </a></li>
+				<li><a href="adaptacion.html"> Adaptacion a moviles </a></li>
+				<li><a href="contenido.html"> contenido editable </a></li>
+				<li><a href="storage.html"> Storage </a></li>
+
+			</ul>
+		</nav>
+		<h2>animation </h2>
+		<pre>
+De una manera parecida a las transiciones, pero con una mayor potencialidad, en HTML5 tenemos a nuestra disposición las animaciones (animation).
+
+Para empezar con algo sencillo, primero vamos a hacer paso a paso que el martillo (creado en SVG) -y que ya hemos utilizado en otros temas- gire al colocar el cursor encima.
+
+		</pre>
+		<h2>Ejemplo práctico complejo </h2>
+		<pre>
+El siguiente ejemplo es bastante más complejo, ya que se relacionan 2 animaciones, además de mejorar un poco la animación del martillo para que gire de una manera algo más natural y clave el clavo.
+
+Al mismo tiempo, se ha utilizado el parámetro opcional infinite para que la animación se realice de manera cíclica.
+
+<div id="martillo">
+  <svg width="120" height="190" xmlns="http://www.w3.org/2000/svg")>
+    <rect x="43" y="10" width="14" height="160" rx="6" ry="5" fill="#895111"/>
+    <rect x="43" y="10" width="14" height="160" rx="6" ry="5" fill="#895111"/>
+    <rect x="45" y="15" width="4" height="150" rx="6" ry="6" fill="#A68661"/>
+    <rect x="10" y="22" width="80" height="45" rx="14" ry="12" fill="#6E6E5F"/>
+    <rect x="20" y="37" width="62" height="24" rx="6" ry="6" fill="#898982"/>
+    <rect x="20" y="25" width="62" height="6" rx="4" ry="4" fill="#C2C2B6"/>
+    <rect x="43" y="67" width="14" height="9" fill="#482907"/>
+  </svg>
+</div>
+Primero, vamos a mejorar un poco el movimiento del martillo.
+Como habrás podido observar (al comparar este movimiento con el ejemplo del principio de este tema) el movimiento de este martillo, aparte de rotar se desplaza hacia abajo para poder llegar hasta el clavo (no se limita a rotar desde su eje central).
+
+Además, al impactar contra el clavo permanece un poco más de tiempo rotado (no sube tan rápidamente).
+
+Para solucionar el primer aspecto hemos añadido el código rojo:
+@keyframes animacion_martillo {
+  0% {
+    transform: rotate(0deg);
+    top:0px
+  }
+  50% {
+    transform: rotate(90deg);
+    top:57px
+  }
+  100% {
+    transform: rotate(0deg);
+    top:0px
+  }
+}
+Siempre que utilizemos las propiedades -top-, -left- o -right- debemos indicar si la posición que estamos indicando es absoluta (toma como referencia las coordenadas de la página html) o relativa (toma como referencia la posición donde está colocado el objeto, en este caso el <div> del martillo), por lo que tenemos que añadir también otra línea de código en el otro apartado del CSS:
+#martillo {
+  animation:animacion_martillo 2s;
+  position:relative;
+}
+ En el caso del primer código, hemos añadido la propiedad top (que define la posición vertical de un elemento) para que cuando la animación llegue a su 50% de reproducción (a parte de girar 90 grados) también baje 57 píxeles. Al haber indicado position:relative le estamos definiendo que tiene que bajar 57 píxeles respecto a la posición relativa del <div> martillo, no de la página.
+
+Pero con esto arreglamos el problema de que el martillo rotase de una manera más natural, pero no el hecho de que al impactar contra el clavo, éste se quede un rato más prolongado en la posición girada.
+
+Para solucionar este problema vamos a realizar dos acciones. Primero, vamos a añadir un paso más a los tres que ya teníamos (quedando en cuatro pasos y modificando un poco los porcentajes centrales):
+@keyframes animacion_martillo {
+  0% {
+    transform: rotate(0deg);
+    top:0px
+  }
+  42% {
+    transform: rotate(90deg);
+    top:57px
+  }
+  60% {
+    transform: rotate(90deg);
+    top:57px
+  }
+  100% {
+    transform: rotate(0deg);
+    top:0px
+  }
+}
+ Ahora, el martillo acaba de girar cuando la animación llega al 42% de su recorrido (no en el 50% como antes) y hasta el 60% no vuelve a subir (antes empezaba a subir inmediatamente después de llegar al 50%). Por lo que en este caso, el martillo queda rotado 90 grados un 18% de la animación
+
+Así,al tratarse de una animación de 2 segundos:
+El martillo baja en 0.84 segundos (del 0% al 42%)
+Permanece rotado durante 0.36 segundos (del 42% al 60%)
+Vuelve a su posición inicial en 0.80 segundos (del 60% al 100%)
+		</pre>
+
+</body>
+</html>

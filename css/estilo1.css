@@ -1,0 +1,119 @@
+body
+{
+	background: #ffffff;
+}
+
+nav ul li 
+{ 
+	/*Bordes redondeados*/
+	border-radius:5px;/*Estandar por defecto*/
+    float:left;	
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:16px;
+    font-weight:bold;
+    margin-right:10px;
+    text-align:center;
+    text-shadow: 0px 1px 0px #FFF;
+}
+nav
+{
+ background-image: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#CCC));/*Para chrome y Safari*/
+    /*Degradados*/
+    overflow:hidden;
+    padding:10px;
+    width: 100%;
+}	
+nav ul
+{
+	list-style:none;
+    margin:0 10px 0 10px;
+    padding:0;
+}
+nav ul li:hover
+{
+	background-image: linear-gradient(top, #FFF, #E3E3E3);/*Estandar por defecto*/
+    /*Sombras*/
+    box-shadow:  1px -1px 0px #999;/*Estandar por defecto*/
+    border:0px solid #E3E3E3;
+}
+
+nav ul li a
+{
+    color:#black;
+    display:block;
+    padding:10px;
+    text-decoration:none;
+    /*Transiciones*/
+    -webkit-transition: 0.4s linear all;
+    -moz-transition: 0.4s linear all;
+    -o-transition: 0.4s linear all;
+    transition: 0.4s linear all;
+}
+nav ul li a:hover{
+	color: #000
+
+}
+#columnas{
+   column-count:4;
+   column-gap:20px;
+   column-rule:4px dotted gray;
+}
+div
+{
+    line-height: 40px;
+    font-family:sans-serif;
+    font-size:15px;
+    margin-right:10px;
+}
+pre
+{
+    line-height: 40px;
+    font-family:sans-serif;
+    font-size:15px;
+    margin-right:10px;
+}
+.codigo{
+    position:relative;  
+    display:inline-block;
+    font-size:16px;
+    padding:3px 25px 3px 11px;
+    margin-top:15px;
+    margin-bottom:4px;
+    border-radius:6px;  
+    box-shadow:inset 0px 0px 15px #B9C1CB, 0px 0px 5px #ADB8C4;
+    background:#E3E6E9;
+    overflow:auto;
+    border:1px solid gray;
+    font-family:monospace;
+}
+
+#degradados_lineales
+{
+background:linear-gradient(30deg, crimson,sienna, royalblue, indianred, purple);
+}
+#degradados_radiales
+{
+background: radial-gradient(red, yellow, rgb(30, 144, 255));
+}
+ 
+#martillo {
+  animation:animacion_martillo 2s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-delay: 1s; 
+
+}
+@keyframes animacion_martillo {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tutorial de html css</title>
+	<link rel="stylesheet" type="text/css" href="css/estilo1.css">
+</head>
+<body>
+	<header ><img src="imagenes/encabezado.png" width="100%"></header>
+		<nav>
+			<ul>
+				<li><a href="incio.html"> Inicio </a></li>
+				<li><a href="imagenes.html"> Imagenes </a></li>
+				<li><a href="listas.html"> Listas y enlaces </a></li>
+				<li><a href="formularios.html"> Formularios </a></li>
+				<li><a href="columnas.html"> columnas de texto </a></li>
+				<li><a href="Video.html"> Video </a></li>
+				<li><a href="audio.html"> Audio </a></li>
+				<li><a href="transparencias.html"> Transparencias y degradados </a></li>
+				<li><a href="animaciones.html"> Animaciones </a></li>
+				<li><a href="graficos.html"> Graficos vectoriales </a></li>
+				<li><a href="canvas.html"> canvas </a></li>
+				<li><a href="adaptacion.html"> Adaptacion a moviles </a></li>
+				<li><a href="contenido.html"> contenido editable </a></li>
+				<li><a href="storage.html"> Storage </a></li>
+
+			</ul>
+		</nav>
+		<h2>Múltiples resoluciones</h2>
+		<pre>
+Los llamados media queries son una serie de funciones que incorpora CSS3 para que las páginas web se adapten "racionalmente" o adopten una maquetación diferente según la
+resolución en la que se muestre la página web, ya sea en navegadores que funcionan sobre ordenadores con grandes monitores, sobre tablets, móviles o incluso displays de neveras,
+yogurteras, coches o lavadoras conectadas a Internet.En la actualidad existe una muy amplia variedad de resoluciones de pantalla, pertenecientes a tablets, móviles y otros dispositivos. 
+Por ello es conveniente adoptar una serie de estándares que abarquen las resoluciones más habituales:
+
+Hace algunos años era mucho más fácil controlar las resoluciones para los diferentes medios, -por ejemplo- la resolución habitual para un móvil era de 320 píxeles en modo horizontal
+y 480 en modo vertical. Actualmente existen móviles que tienen resoluciones equiparables a tablets y a pequeños portátiles. Por ello, para intentar agrupar resoluciones en grupos 
+estándares, podemos utilizar los siguientes grupos:
+Resoluciones iguales o menores de 480 píxeles: para móviles
+Resoluciones de 481px a 768 píxeles: para tablets
+Resoluciones mayores de 768 píxeles: para ordenadores
+		</pre>
+		<h2>¿Dónde colocarlos?</h2>
+		<pre>
+Como habitualmente cada página html tiene su propia estructura y necesita de una adaptación personalizada, este código CSS se suele añadir en el &lt;style> del &lt;head>, dentro de la propia
+página html, aunque siempre al final, siempre justo antes de cerrar la etiqueta &lt;/style>.
+&lt;head>	
+  &lt;style type="text/css">
+
+   body{
+      background-color:white;
+      font-size:14px;
+   }	
+
+   #bloque1{
+      font-size:15px;
+   }
+
+   @media only screen and (max-width:320px){
+    body{
+      background-color:red;
+    }
+    #bloque1{
+      font-size:12px;
+    }
+  }
+  &lt;/style>
+&lt;/head>
+<ul>
+	 <li>Primero colocamos todos los selectores habituales de la página, ya sea dentro del <head> o bien dentro un archivo CSS externo.</head>
+	 <li>Después de todos los selectores CSS habituales se colocan los mediaqueries con sus selectores CSS dentro.</li>
+</ul>
+<h2>Funcionamiento de las Mediaqueries</h2>
+		<pre>
+Un mediaquerie agrupa diferentes selectores CSS e identifica en qué condiciones se deben ejecutar dichos selectores. Normalmente estas condiciones están relacionadas con la resolución 
+horizontal del dispositivo donde se está visualizando la página web.En el código del ejemplo anterior: (@media only screen and (max-width:320px){), se indica que si la resolución horizontal 
+(width) es menor que (max) 320 píxeles se modificará el color de fondo del &lt;body> por rojo y el texto del &lt;div> con id="bloque1" será de 12 píxeles. Si no se cumple esta condición se 
+habrán ejecutado los primeros selectores CSS que indican un color de fondo blanco y un tamaño de fuente de 14px
+		</pre>
+		<h2> Sintaxis </h2>
+		<pre>
+Tenemos diferentes posibilidades:
+@media only screen and (max-width:320px){
+  <!--Este mediaquerie se ejecutará sólo cuando la resolución horizontal sea menor de 320 píxeles-->
+}
+
+@media only screen and (min-width:980px){
+  <!--Este mediaquerie se ejecutará sólo cuando la resolución horizontal sea mayor de 980 píxeles-->
+}
+El primer parámetro seleccionado en rojo tiene dos posibilidades:
+max-width: Equivale a la traducción "cuando la resolución horizontal sea menor que la indicada...".
+min-width: Equivale a la traducción "cuando la resolución horizontal sea mayor que la indicada...".
+También se pueden combinar dos rángos para ajustar todavía más un rango de resolución.
+@media only screen and (min-width:320px) and (max-width:480px){
+  <!--Se ejecutará sólo cuando la resolución horizontal se encuentre entre 320 y 480 píxeles-->
+}
+
+		</pre>
+		<h2>Exclusivo para móviles y tablets</h2>
+		<pre>
+En un móvil no tenemos una ventana del navegador que podamos redimensionar como ocurre con un ordenador, sino que toda la pantalla del móvil es utilizada como ventana del navegador.
+Además -como norma general- cuando se visualiza una página web en un móvil el contenido se escala para mostrarlo al completo, por lo que generalmente la página se muestra muy pequeña.
+
+Para evitar estos dos problemas tenemos dos soluciones:
+
+@media only screen and (min-device-width:320px) and (max-device-width:480px){
+  <!--Se ejecutará sólo cuando la resolución horizontal se encuentre entre 320 y 480 píxeles-->
+}
+Añadiendo device podemos hacer referencia -no al ancho de la ventana del navegador (que no existe como tal)- sino a la anchura real del dispositivo.
+
+Para que el contenido no se escale automáticamente al visualizar una página web debemos utilizar un metadata que colocaremos dentro del <head> para configurar el viewport con varias propiedades y que únicamente funcionará para móviles y tablets: 
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+ Con width=device-width indicamos que el contenido se adapte a la resolución horizontal real de nuestro dispositivo (no a la ventana ficticia del navegador).
+Al mismo tiempo con initial-scale=1 estamos configurando la escala inicial de visualización. Así, utilizando un valor de "1", el contenido se verá al 100% del tamaño (con "2" la escala inicial sería el doble, pudiéndose utilizar decimales "0.75", "1.25"...)
+
+Por último, podemos indicar el máximo grado de zoom que podrá hacer el usuario utilizando maximum-scale=2. En este ejemplo, con un valor de "2", se permite al usuario ampliar el contenido como máximo el doble de su tamaño original.
+
+Por el contrario, si queremos que el usuario no pueda empequeñecer más del tamaño original el contenido podemos añadir la propiedad minimum-scale=1.
+		</pre>
+
+</body>
+</html>

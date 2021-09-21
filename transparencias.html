@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tutorial de html css</title>
+	<link rel="stylesheet" type="text/css" href="css/estilo1.css">
+</head>
+<body>
+	<header ><img src="imagenes/encabezado.png" width="100%"></header>
+		<nav>
+			<ul>
+				<li><a href="incio.html"> Inicio </a></li>
+				<li><a href="imagenes.html"> Imagenes </a></li>
+				<li><a href="listas.html"> Listas y enlaces </a></li>
+				<li><a href="formularios.html"> Formularios </a></li>
+				<li><a href="columnas.html"> columnas de texto </a></li>
+				<li><a href="Video.html"> Video </a></li>
+				<li><a href="audio.html"> Audio </a></li>
+				<li><a href="transparencias.html"> Transparencias y degradados </a></li>
+				<li><a href="animaciones.html"> Animaciones </a></li>
+				<li><a href="graficos.html"> Graficos vectoriales </a></li>
+				<li><a href="canvas.html"> canvas </a></li>
+				<li><a href="adaptacion.html"> Adaptacion a moviles </a></li>
+				<li><a href="contenido.html"> contenido editable </a></li>
+				<li><a href="storage.html"> Storage </a></li>
+
+			</ul>
+		</nav>
+		<h2>Transparencias</h2>
+		<pre>
+En CSS3, se pueden definir transparencias, ya sea en el color de fondo de un <div> en concreto como en algunos elementos individuales.
+
+Así, para definir un color de fondo con un índice de transparencia determinado utilizamos 'rgba (rojo, verde, azul, transparencia)':
+background-color:rgba(255,0,0, 0.4);
+
+El primer cuadro representa un color rojo con una opacidad del 40% (0.4), mientras que el segundo cuadro se ha añadido para poder ver la diferencia con el color rojo sin transparencia.
+
+En este ejemplo se han utilizado los valores RGB del color rojo (255 para el rojo (el máximo valor), 0 (el mínimo valor) tanto para el verde, como para el azul), con un 0.4 (40%) de opacidad (o 60% de transparencia, según como se vea).
+
+Si deseas ver una tabla de relación entre los códigos de color en hexadecimal y los RGB accede a FarystyDesign.
+
+Otra posibilidad que existe (para algunos objetos, como es el caso de las imágenes SVG entre otros) es utilizar el atributo 'opacity, indicando los mismos valores (de 0: totalmente transparente a 1: totalmente opaco).
+opacity: 0.4;
+		</pre>
+<h2>Degradados</h2>
+		<pre>
+Los degradados a través de código CSS3 han sido una de las que más vueltas han dado hasta estabilizarse y generalizarse de la misma forma en (casi) todos los navegadores.
+Vamos a dejar en el bául del ólvido el infernal código de degradado que utilizaban las versiones de Chrome anteriores a la 10 y de Safari anteriores a la 5 y nos vamos a concentar en el código genérico que funciona en:
+
+Firefox 3.6+
+Chrome +10
+Safari +5.1
+Opera 11.10+ (Sólo degradados lineales)
+(e increiblemente en) Internet Explorer 10+
+		</pre>
+		<h3>Degradados</h3>
+		<pre>
+Degradados lineales
+Primero definimos dónde empieza el degradado (top, bottom, right, left) o bien indicando un ángulo (45deg), seguido de los colores que compondrán el degradado y de manera opcional se puede indicar cuánto durará cada color (en porcentaje).
+background:linear-gradient(dónde empieza, color1, 40%, color2, 60%);
+
+ejemplo practico:
+<div id="degradados_lineales">
+	
+</div>
+		</pre>
+		<h2>Degradados radiales</h2>
+		<pre>
+Aunque Opera todavía no admite degradados radiales, la estructura y sintaxis es muy parecida a los degradados lineales aunque utilizando radial-gradient.
+Primero definimos dónde está el centro del degradado a través de una posición horizontal y luego una vertical (utilizando center, top, bottom, right, left o unas coordenadas en píxeles 125px 200px). Seguidamente se define la forma (circle o ellipse). Después opcionalmente se puede definir cómo se expandirá el degradado. Por último se definen los colores que compondrán el degradado y de manera opcional se puede indicar cuánto durará cada color (en porcentaje).
+
+<nav>
+background:radial-gradient(dónde está el centro, circle/ellipse expansión del degradado, color1, 40%, color2, 60%);
+</nav>
+ejemplos practicos:
+background: radial-gradient(red, yellow, rgb(30, 144, 255));
+<div id="degradados_radiales"> </div>
+
+		</pre>
+</body>
+</html>
